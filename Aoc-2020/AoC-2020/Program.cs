@@ -1,12 +1,13 @@
-﻿using System;
+﻿using Aoc_2020.Puzzles;
+using Aoc_2020.Sponsors.Infi;
 
 namespace Aoc_2020
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Day1Part2.Execute();
         }
     }
 }
