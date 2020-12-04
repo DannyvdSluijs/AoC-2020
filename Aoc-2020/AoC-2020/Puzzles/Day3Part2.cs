@@ -341,14 +341,12 @@ namespace Aoc_2020.Puzzles
             result *= FindTreesInPath(1, 7, map);
             result *= FindTreesInPath(2, 1, map);
 
-            Console.WriteLine($"Found sum of trees {result} while traversing down with all options");
+            Console.WriteLine($"Found sum of trees {result} while traversing down with all options"); // 2124702224
         }
 
         private static int FindTreesInPath(int xIncrease, int yIncrease, char[][] map)
         {
-            var x = 0;
-            var y = 0;
-            var trees = 0;
+            int x = 0, y = 0, trees = 0;
             var maxWidth = map.First().Length;
             var maxDepth = map.Length;
 
@@ -365,8 +363,6 @@ namespace Aoc_2020.Puzzles
                 {
                     trees++;
                 }
-
-
             }
 
             Console.WriteLine($"For x: {xIncrease} and y: {yIncrease} the number of trees is {trees}");

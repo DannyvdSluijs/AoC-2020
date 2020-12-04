@@ -355,7 +355,7 @@ namespace Aoc_2020.Puzzles
                 }
             }
 
-            Console.WriteLine($"Found {trees} trees while traversing down");
+            Console.WriteLine($"Found {trees} trees while traversing down"); // 159
         }
     }
 }
