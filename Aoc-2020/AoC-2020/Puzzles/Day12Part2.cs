@@ -782,53 +782,43 @@ F39".Trim()
             var x = (0, 0);
             var waypointOffset = (1, 10);
 
-            foreach (var instruction in input)
+            foreach (var (action, value) in input)
             {
-                switch (instruction.Item1)
+                switch (action)
                 {
                     case "N":
-                        waypointOffset.Item1 += instruction.Item2;
+                        waypointOffset.Item1 += value;
                         break;
                     case "S":
-                        waypointOffset.Item1 -= instruction.Item2;
+                        waypointOffset.Item1 -= value;
                         break;
                     case "E":
-                        waypointOffset.Item2 += instruction.Item2;
+                        waypointOffset.Item2 += value;
                         break;
                     case "W":
-                        waypointOffset.Item2 -= instruction.Item2;
+                        waypointOffset.Item2 -= value;
                         break;
                     case "L":
-                        switch (instruction.Item2)
+                        waypointOffset = value switch
                         {
-                            case 90:
-                                waypointOffset = (waypointOffset.Item2, waypointOffset.Item1 * -1);
-                                break;
-                            case 180:
-                                waypointOffset = (waypointOffset.Item1 * -1, waypointOffset.Item2 * -1);
-                                break;
-                            case 270:
-                                waypointOffset = (waypointOffset.Item2 * -1, waypointOffset.Item1);
-                                break;
-                        }
+                            90 => (waypointOffset.Item2, waypointOffset.Item1 * -1),
+                            180 => (waypointOffset.Item1 * -1, waypointOffset.Item2 * -1),
+                            270 => (waypointOffset.Item2 * -1, waypointOffset.Item1),
+                            _ => waypointOffset
+                        };
                         break;
                     case "R":
-                        switch (instruction.Item2)
+                        waypointOffset = value switch
                         {
-                            case 90:
-                                waypointOffset = (waypointOffset.Item2 * -1, waypointOffset.Item1);
-                                break;
-                            case 180:
-                                waypointOffset = (waypointOffset.Item1 * -1, waypointOffset.Item2 * -1);
-                                break;
-                            case 270:
-                                waypointOffset = (waypointOffset.Item2, waypointOffset.Item1 * -1);
-                                break;
-                        }
+                            90 => (waypointOffset.Item2 * -1, waypointOffset.Item1),
+                            180 => (waypointOffset.Item1 * -1, waypointOffset.Item2 * -1),
+                            270 => (waypointOffset.Item2, waypointOffset.Item1 * -1),
+                            _ => waypointOffset
+                        };
                         break;
                     case "F":
-                        x = (x.Item1 + waypointOffset.Item1 * instruction.Item2,
-                            x.Item2 + waypointOffset.Item2 * instruction.Item2);
+                        x = (x.Item1 + waypointOffset.Item1 * value,
+                            x.Item2 + waypointOffset.Item2 * value);
                         break;
                 }
             }

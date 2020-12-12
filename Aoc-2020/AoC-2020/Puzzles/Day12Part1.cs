@@ -782,42 +782,42 @@ F39".Trim()
             var x = (0, 0);
             var direction = 90;
 
-            foreach (var instruction in input)
+            foreach (var (action, value) in input)
             {
-                switch (instruction.Item1)
+                switch (action)
                 {
                     case "N":
-                        x.Item1 += instruction.Item2;
+                        x.Item1 += value;
                         break;
                     case "S":
-                        x.Item1 -= instruction.Item2;
+                        x.Item1 -= value;
                         break;
                     case "E":
-                        x.Item2 += instruction.Item2;
+                        x.Item2 += value;
                         break;
                     case "W":
-                        x.Item2 -= instruction.Item2;
+                        x.Item2 -= value;
                         break;
                     case "L":
-                        direction = (direction - instruction.Item2 + 360) % 360;
+                        direction = (direction - value + 360) % 360;
                         break;
                     case "R":
-                        direction = (direction + instruction.Item2) % 360;
+                        direction = (direction + value) % 360;
                         break;
                     case "F":
                         switch (direction)
                         {
                             case 0:
-                                x.Item1 += instruction.Item2;
+                                x.Item1 += value;
                                 break;
                             case 90:
-                                x.Item2 += instruction.Item2;
+                                x.Item2 += value;
                                 break;
                             case 180:
-                                x.Item1 -= instruction.Item2;
+                                x.Item1 -= value;
                                 break;
                             case 270:
-                                x.Item2 -= instruction.Item2;
+                                x.Item2 -= value;
                                 break;
                         }
                         break;
