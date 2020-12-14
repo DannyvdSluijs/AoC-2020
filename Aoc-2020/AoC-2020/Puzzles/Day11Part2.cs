@@ -163,11 +163,8 @@ LLLLLLL.LLLLLLLL.LLLLLLL.LLLLLLLLLLLLLL.LLLLLLL.LLLLLL.LL.LLLLLLL.LLLLLLLL.LLLLL
         public static int NumberOfOccupiedSeatsInSight(char[][] map, int row, int column)
         {
             var numberOfOccupiedSeats = 0;
-            var occupied = '#';
-            var empty = 'L';
-            var falsePosition = 'X';
 
-            int[,] offsets = new int[,] {{-1, -1}, {-1, 0}, {-1, 1}, {0,-1}, {0,1}, {1, -1}, {1, 0}, {1, 1} };
+            int[,] offsets = {{-1, -1}, {-1, 0}, {-1, 1}, {0,-1}, {0,1}, {1, -1}, {1, 0}, {1, 1}};
 
             for (int i = 0; i < offsets.Length / 2; i++)
             {

@@ -780,7 +780,7 @@ F39".Trim()
                 .Select(i => (i.Substring(0, 1), int.Parse(i.Substring(1))));
 
             var x = (0, 0);
-            var waypointOffset = (1, 10);
+            var waypointOffset = (NS: 1, WE: 10);
 
             foreach (var (action, value) in input)
             {
