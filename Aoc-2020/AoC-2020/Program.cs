@@ -7,7 +7,7 @@ namespace Aoc_2020
     {
         private static void Main(string[] args)
         {
-            Day13Part2.Execute();
+            Day16Part2.Execute();
         }
     }
 }
