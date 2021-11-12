@@ -20,6 +20,7 @@ namespace Aoc_2020.Sponsors.Infi
             var clothNeeded = bagLengths.Select(Utils.GetClothNeededForBagLength);
 
             Console.WriteLine($"For all the people the elves of Santa need {clothNeeded.Sum()} cloth");
+            // For all the people the elves of Santa need 537816 cloth
         }
     }
 }
